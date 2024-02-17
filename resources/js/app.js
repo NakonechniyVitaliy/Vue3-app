@@ -1,28 +1,7 @@
-import './bootstrap';
+import { createApp } from 'vue';
+import App from "@/Components/App.vue";
+import router from './router';
+import store from './store'
 
-import Alpine from 'alpinejs';
+createApp(App).use(router).mount('#app');
 
-window.Alpine = Alpine;
-
-Alpine.start();
-
-
-
-import { createApp } from 'vue/dist/vue.esm-bundler';
-import PostComponent from './components/PostComponent.vue';
-import CreateComponent from './components/CreateComponent.vue';
-import SomeComponent from './components/SomeComponent.vue';
-import EditComponent from './components/EditComponent.vue';
-import ShowComponent from './components/ShowComponent.vue';
-
-const app = createApp({
-    components: {
-        'post-component': PostComponent,
-        'create-component' : CreateComponent,
-        'some-component' : SomeComponent,
-        'edit-component' : EditComponent,
-        'show-component' : ShowComponent,
-    }
-});
-
-app.mount('#app');

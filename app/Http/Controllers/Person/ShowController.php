@@ -7,11 +7,10 @@ use App\Models\Person;
 use Illuminate\Routing\Controller;
 
 
-class IndexController extends Controller
+class ShowController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Person $person)
     {
-        $persons = Person::all();
-        return PersonResource::collection($persons) ;
+        return new PersonResource($person);
     }
 }

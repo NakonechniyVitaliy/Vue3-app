@@ -6,6 +6,7 @@ use App\Http\Controllers\Person\StoreController;
 use App\Http\Controllers\Person\IndexController;
 use App\Http\Controllers\Person\UpdateController;
 use App\Http\Controllers\Person\DeleteController;
+use App\Http\Controllers\Person\ShowController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'person'], function (){
    Route::post('/', StoreController::class);
    Route::get('/', IndexController::class);
+   Route::get('/{person}', ShowController::class);
    Route::patch('/{person}', UpdateController::class);
    Route::delete('/{person}', DeleteController::class);
 });
